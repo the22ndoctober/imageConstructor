@@ -326,6 +326,9 @@ $(button).on('click', function () {
 
 photoDrag.forEach(photo=>{
     
+    photo.addEventListener('dragover', e =>{
+        e.preventDefault()        
+    }) 
     photo.addEventListener('dragstart', e =>{
         dragStart.x = e.clientX
         dragStart.y = e.clientY

@@ -49,13 +49,16 @@ button{
 
 .photo-cropped-h100{
     position: absolute;
-    width: auto;
     height: 125%;
+    width: auto;
+    cursor: grab;
+    
 }
 .photo-cropped-w100{
     position: absolute;
     width: 125%;
     height: auto;
+    cursor: grab;
 }
 
 .inputNameWrapper{
