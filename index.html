@@ -5,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shablon</title>
-    <script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="./node_modules/html2canvas/dist/html2canvas.min.js" type="text/javascript"></script> 
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <div class="options">
@@ -105,15 +102,18 @@
         <div class="btn-container">
             <button id="btn" class="btn btn-primary">Скачать все пикчи</button>
             <button id="btn-align-center" class="btn btn-secondary">Поставить фото на место</button>
+            <button id="btn-downloadS" class="btn btn-outline-primary">Скачать стори</button>
+            <button id="btn-downloadIp" class="btn btn-outline-success">Скачать Инстапост</button>
+            <button id="btn-downloadFb" class="btn btn-outline-info">Скачать ФБ пост</button>
         </div>
         
     </div>
     
     <div class="imageWrapper">
 
-        <div class="wrapperStories">
+        <div class="wrapperStories" crossorigin="anonymous">
             <div class="photoS">      
-                <img src="./content/test.jpg" alt="" draggable="true" class="photo-cropped-h100 photo-drag">          
+                <img src="./content/test.jpg" id='photoS' alt="" draggable="true" class="photo-cropped-h100 photo-drag">          
                           
             </div>
             <div class="nameSWrapper">
@@ -137,14 +137,20 @@
             <img class="img_S" src="./content/storyBG.png" alt="" srcset="">
             
         </div>
-        <div class="verticalFadersStories">
-            <input type="range" title="фото" value="-70" orient="vertical" step="1" max="0" min="-400" id="positionPhotoS" class="verticalFader">
-            <input type="range" title="имя" value="-170" orient="vertical" step="1" max="0" min="-400" id="positionNameS" class="verticalFader">
-            <input type="range" title="страна" value="-235" orient="vertical" step="1" max="0" min="-400" id="positionCountryS" class="verticalFader">
-            <input type="range" title="текст" value="-270" orient="vertical" step="1" max="0" min="-400" id="positionTextS" class="verticalFader">
+        <div class="optionsS">
+            <div class="verticalFadersStories">
+                <input type="range" title="фото" value="-70" orient="vertical" step="1" max="0" min="-400" id="positionPhotoS" class="verticalFader">
+                <input type="range" title="имя" value="-170" orient="vertical" step="1" max="0" min="-400" id="positionNameS" class="verticalFader">
+                <input type="range" title="страна" value="-235" orient="vertical" step="1" max="0" min="-400" id="positionCountryS" class="verticalFader">
+                <input type="range" title="текст" value="-270" orient="vertical" step="1" max="0" min="-400" id="positionTextS" class="verticalFader">
+            </div>
+            <div class="sizeS input-group-sm">
+                <span>Размер фото</span>
+                <input class="form-check-input" type="range" name="" id="photoRatioS" step='0.1' max='3' min='0' value="1">
+            </div>
         </div>
 
-        <div class="wrapperInstPost">
+        <div class="wrapperInstPost" crossorigin="anonymous">
             <div class="photoIp">               
                 <img src="./content/test.jpg" alt="" draggable="true" class="photo-cropped-h100 photo-drag">       
             </div>   
@@ -168,14 +174,22 @@
             </div>
             <img class="img_Ip" src="./content/postInstBG.png" alt="" srcset="">
         </div>
-        <div class="verticalFadersStories">
-            <input type="range" title="фото" value="-35" orient="vertical" step="1" max="0" min="-250" id="positionPhotoIp" class="verticalFader">
-            <input type="range" title="имя" value="-100" orient="vertical" step="1" max="0" min="-250" id="positionNameIp" class="verticalFader">
-            <input type="range" title="страна" value="-145" orient="vertical" step="1" max="0" min="-250" id="positionCountryIp" class="verticalFader">
-            <input type="range" title="текст" value="-165" orient="vertical" step="1" max="0" min="-250" id="positionTextIp" class="verticalFader">
+        <div class="optionsIp">
+            <div class="verticalFadersStories">
+                <input type="range" title="фото" value="-35" orient="vertical" step="1" max="0" min="-250" id="positionPhotoIp" class="verticalFader">
+                <input type="range" title="имя" value="-100" orient="vertical" step="1" max="0" min="-250" id="positionNameIp" class="verticalFader">
+                <input type="range" title="страна" value="-145" orient="vertical" step="1" max="0" min="-250" id="positionCountryIp" class="verticalFader">
+                <input type="range" title="текст" value="-165" orient="vertical" step="1" max="0" min="-250" id="positionTextIp" class="verticalFader">
+            </div>
+            <div class="sizeIp input-group-sm">
+                <span class="input-group-text" id="inputGroup-sizing-sm">width</span>
+                <input type="number" class="form-control" name="width" id="sizeSwidth">
+                <span class="input-group-text" id="inputGroup-sizing-sm">height</span>
+                <input type="number" class="form-control" name="height" id="sizeSheight">
+            </div>
         </div>
         
-        <div class="wrapperFb">
+        <div class="wrapperFb" crossorigin="anonymous">
             <div class="photoFb">               
                 <img src="./content/test.jpg" alt="" draggable="true" class="photo-cropped-h100 photo-drag">       
             </div>  
@@ -208,7 +222,6 @@
 
     </div>
     
-    <script defer src="script.js"></script>
+    <script type="module" defer src="./scripts/script.js"></script>
 </body>
 </html>
-

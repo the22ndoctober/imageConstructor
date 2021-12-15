@@ -1,10 +1,16 @@
+import resize from '../scripts/resize.js'
+
+resize(110,112)
+
 //global variables
 let button = document.querySelector('#btn')
+let buttonDownloadS = document.querySelector('#btn-downloadS')
+let buttonDownloadIp = document.querySelector('#btn-downloadIp') 
+let buttonDownloadFb = document.querySelector('#btn-downloadFb') 
 let buttonAlign = document.querySelector('#btn-align-center')
 let photoDrag = Array.from(document.querySelectorAll('.photo-drag'))
 let photoWrappers = Array.from(document.querySelectorAll('.photo-cropped-h100'))
 let photoPath = document.querySelector('#file_path')
-let photoHolder = document.querySelector('.photo-mini')
 let dragStart = {x:0, y:0}
 let dragEnd = {x:0, y:0}
 
@@ -92,9 +98,9 @@ const namePositionFaderFb_change = ()=>{
     //'name' events//
 nameInputValue.oninput = nameValue_change
 
-nameFontSizeS.onchange = nameFontSizeS_change
-nameFontSizeIp.onchange = nameFontSizeIp_change
-nameFontSizeFb.onchange = nameFontSizeFb_change
+nameFontSizeS.oninput = nameFontSizeS_change
+nameFontSizeIp.oninput = nameFontSizeIp_change
+nameFontSizeFb.oninput = nameFontSizeFb_change
 
 namePositionFaderS.oninput = namePositionFaderS_change
 namePositionFaderIp.oninput = namePositionFaderIp_change
@@ -160,9 +166,9 @@ const countryPositionFaderFb_change = ()=>{
     //'country' events//
 countryInputValue.oninput = countryValue_change
 
-countryFontSizeS.onchange = countryFontSizeS_change
-countryFontSizeIp.onchange = countryFontSizeIp_change
-countryFontSizeFb.onchange = countryFontSizeFb_change
+countryFontSizeS.oninput = countryFontSizeS_change
+countryFontSizeIp.oninput = countryFontSizeIp_change
+countryFontSizeFb.oninput = countryFontSizeFb_change
 
 countryPositionFaderS.oninput = countryPositionFaderS_change
 countryPositionFaderIp.oninput = countryPositionFaderIp_change
@@ -226,9 +232,9 @@ const textPositionFaderFb_change = ()=>{
     //'text' events//
 textInputValue.oninput = textValue_change
 
-textFontSizeS.onchange = textFontSizeS_change
-textFontSizeIp.onchange = textFontSizeIp_change
-textFontSizeFb.onchange = textFontSizeFb_change
+textFontSizeS.oninput = textFontSizeS_change
+textFontSizeIp.oninput = textFontSizeIp_change
+textFontSizeFb.oninput = textFontSizeFb_change
 
 textPositionFaderS.oninput = textPositionFaderS_change
 textPositionFaderIp.oninput = textPositionFaderIp_change
@@ -271,6 +277,7 @@ photoPath.onchange = ()=>{
         photo.src = window.URL.createObjectURL(photoPath.files[0]) 
         let width = photo.getBoundingClientRect().width      
         let height = photo.getBoundingClientRect().height
+
         if(width>=height){
             photo.classList.remove('photo-cropped-h100')
             photo.classList.add('photo-cropped-w100')
@@ -278,51 +285,110 @@ photoPath.onchange = ()=>{
         else{
             photo.classList.remove('photo-cropped-w100')
             photo.classList.add('photo-cropped-h100')
-        }  
+        }
+
+        console.log(photo.clientWidth)
+        console.log(photo.clientHeight)
+        resize(photo.style.width , photo.style.height)  
     })
 }
 
 
 
-$(button).on('click', function () {
+button.onclick = ()=> {
     let storyWrapper = document.querySelector('.wrapperStories')
     let instPostWrapper = document.querySelector('.wrapperInstPost')
-    let FbWrapper = document.querySelector('.wrapperFb')
+    let fbWrapper = document.querySelector('.wrapperFb')
 
     storyWrapper.classList.add('wrapperStories-download')
     instPostWrapper.classList.add('wrapperStories-download')
-    FbWrapper.classList.add('wrapperStories-download')
+    fbWrapper.classList.add('wrapperStories-download')
 
-    html2canvas(storyWrapper).then(function (canvas) {                   
-       var anchorTag = document.createElement("a");
+    html2canvas(storyWrapper).then(canvas => {  
+        let anchorTag = document.createElement("a");
         document.body.appendChild(anchorTag);
+        anchorTag.crossOrigin = "anonymous"
         anchorTag.download = "story.jpg";
         anchorTag.href = canvas.toDataURL();
         anchorTag.target = '_blank';
         anchorTag.click();
+        anchorTag.remove()
     });
+
     html2canvas(instPostWrapper).then(function (canvas) {                   
-        var anchorTag = document.createElement("a");
-         document.body.appendChild(anchorTag);
-         anchorTag.download = "ip.jpg";
-         anchorTag.href = canvas.toDataURL();
-         anchorTag.target = '_blank';
-         anchorTag.click();
+        let anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        anchorTag.crossOrigin = "anonymous"
+        anchorTag.download = "Ip.jpg";
+        anchorTag.href = canvas.toDataURL();
+        anchorTag.target = '_blank';
+        anchorTag.click();
+        anchorTag.remove()
      });
-    html2canvas(FbWrapper).then(function (canvas) {                   
-        var anchorTag = document.createElement("a");
-         document.body.appendChild(anchorTag);
-         anchorTag.download = "fb.jpg";
-         anchorTag.href = canvas.toDataURL();
-         anchorTag.target = '_blank';
-         anchorTag.click();
+     
+    html2canvas(fbWrapper).then(function (canvas) {                   
+        let anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        anchorTag.crossOrigin = "anonymous"
+        anchorTag.download = "Fb.jpg";
+        anchorTag.href = canvas.toDataURL();
+        anchorTag.target = '_blank';
+        anchorTag.click();
+        anchorTag.remove()
     });
     storyWrapper.classList.remove('wrapperStories-download')
     instPostWrapper.classList.remove('wrapperStories-download')
-    FbWrapper.classList.remove('wrapperStories-download')
-});
+    fbWrapper.classList.remove('wrapperStories-download')
+}
 
+buttonDownloadS.onclick = ()=>{
+    let storyWrapper = document.querySelector('.wrapperStories')
+    storyWrapper.classList.add('wrapperStories-download')
+    html2canvas(storyWrapper).then(canvas => {  
+        let anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        anchorTag.crossOrigin = "anonymous"
+        anchorTag.download = "story.jpg";
+        anchorTag.href = canvas.toDataURL();
+        anchorTag.target = '_blank';
+        anchorTag.click();
+        anchorTag.remove()
+    });
+    storyWrapper.classList.remove('wrapperStories-download')
+}
 
+buttonDownloadIp.onclick = ()=>{
+    let instPostWrapper = document.querySelector('.wrapperInstPost')
+    instPostWrapper.classList.add('wrapperStories-download')
+    html2canvas(instPostWrapper).then(function (canvas) {                   
+        let anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        anchorTag.crossOrigin = "anonymous"
+        anchorTag.download = "Ip.jpg";
+        anchorTag.href = canvas.toDataURL();
+        anchorTag.target = '_blank';
+        anchorTag.click();
+        anchorTag.remove()
+     });
+    
+    instPostWrapper.classList.remove('wrapperStories-download')
+}
+
+buttonDownloadFb.onclick = ()=>{
+    let fbWrapper = document.querySelector('.wrapperFb')
+    fbWrapper.classList.add('wrapperStories-download')
+    html2canvas(fbWrapper).then(function (canvas) {                   
+        let anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        anchorTag.crossOrigin = "anonymous"
+        anchorTag.download = "Fb.jpg";
+        anchorTag.href = canvas.toDataURL();
+        anchorTag.target = '_blank';
+        anchorTag.click();
+        anchorTag.remove()
+    });
+    fbWrapper.classList.remove('wrapperStories-download')
+}
 
 photoDrag.forEach(photo=>{
     

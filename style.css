@@ -1,3 +1,71 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Extrabold.ttf);
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Heavy.ttf);
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Semibold.ttf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Light.ttf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Thin.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Black.ttf);
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+*{
+    font-family: Gilroy;
+}
 .options{
     display: flex;
     flex-direction: column;
@@ -9,12 +77,14 @@
 
 input {
     width: 400px;
-    height: 100px;
+    height: 60px;
 }
-
+#file_path {
+    height: 30px;
+}
 button{
     width: 150px;
-    height: 80px;
+    height: 70px;
     margin: 10px 10px 10px 10px;
 }
 .verticalFadersStories{
@@ -49,15 +119,11 @@ button{
 
 .photo-cropped-h100{
     position: absolute;
-    height: 125%;
-    width: auto;
     cursor: grab;
     
 }
 .photo-cropped-w100{
     position: absolute;
-    width: 125%;
-    height: auto;
     cursor: grab;
 }
 
@@ -95,6 +161,18 @@ button{
 .wrapperStories-download{
     transform: scale(400%);
 }
+.optionsS{
+    display: flex;
+    flex-direction: column;
+}
+.sizeS {
+    display: flex;
+    flex-direction: column;
+}
+.sizeS input{
+    width: 190px;
+}
+
 
 .img_S{
     width: 270px;
@@ -119,7 +197,7 @@ button{
     word-wrap: break-word;
     line-height: 1.1;
     margin: 0 auto;
-    font-weight: 750;
+    font-weight: 700;
     width: 180px;
     height: 60px;
     /* font-size: 100%; */
@@ -131,7 +209,7 @@ button{
 }
 .countryS{
     word-wrap: break-word;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1;
     margin: 0 auto;
     width: 180px;
@@ -147,7 +225,7 @@ button{
 .textS{
     word-wrap: break-word;
     margin: 0 auto;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.1;
     width: 200px;
     height: 60px;
@@ -185,7 +263,7 @@ button{
     word-wrap: break-word;
     line-height: 1.1;
     margin: 0 auto;
-    font-weight: 750;
+    font-weight: 800;
     width: 180px;
     height: 60px;
     /* font-size: 100%; */
@@ -197,7 +275,7 @@ button{
 }
 .countryIp{
     word-wrap: break-word;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1;
     margin: 0 auto;
     width: 180px;
@@ -213,7 +291,7 @@ button{
 .textIp{
     word-wrap: break-word;
     margin: 0 auto;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.1;
     width: 200px;
     height: 60px;
@@ -252,7 +330,7 @@ button{
     word-wrap: break-word;
     line-height: 1.1;
     margin: 0 auto;
-    font-weight: 750;
+    font-weight: 800;
     width: 180px;
     height: 60px;
     /* font-size: 100%; */
@@ -264,7 +342,7 @@ button{
 }
 .countryFb{
     word-wrap: break-word;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1;
     margin: 0 auto;
     width: 180px;
@@ -280,7 +358,7 @@ button{
 .textFb{
     word-wrap: break-word;
     margin: 0 auto;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.1;
     width: 200px;
     height: 60px;
