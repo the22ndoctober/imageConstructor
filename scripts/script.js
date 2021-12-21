@@ -1,6 +1,11 @@
 import resize from '../scripts/resize.js'
 
-resize(110,112)
+resize.resizeS(110,110)
+resize.resizeIp(60,60)
+resize.resizeFb(60,60)
+resize.containerFbresize()
+resize.containerIpresize()
+resize.containerSresize()
 
 //global variables
 let button = document.querySelector('#btn')
@@ -9,15 +14,15 @@ let buttonDownloadIp = document.querySelector('#btn-downloadIp')
 let buttonDownloadFb = document.querySelector('#btn-downloadFb') 
 let buttonAlign = document.querySelector('#btn-align-center')
 let photoDrag = Array.from(document.querySelectorAll('.photo-drag'))
-let photoWrappers = Array.from(document.querySelectorAll('.photo-cropped-h100'))
+let photoWrappers = Array.from(document.querySelectorAll('.photo'))
 let photoPath = document.querySelector('#file_path')
 let dragStart = {x:0, y:0}
 let dragEnd = {x:0, y:0}
 
 //'photo' variables
-let photoS = document.querySelector('.photoS')
-let photoIp = document.querySelector('.photoIp')
-let photoFb = document.querySelector('.photoFb')
+let photoS = document.querySelector('.photoSContainer')
+let photoIp = document.querySelector('.photoIpContainer')
+let photoFb = document.querySelector('.photoFbContainer')
 
 let photoPositionFaderS = document.querySelector('#positionPhotoS')
 let photoPositionFaderIp = document.querySelector('#positionPhotoIp')
@@ -273,23 +278,73 @@ window.onload = ()=>{
 
 
 photoPath.onchange = ()=>{     
-    photoWrappers.forEach(photo=>{      
-        photo.src = window.URL.createObjectURL(photoPath.files[0]) 
-        let width = photo.getBoundingClientRect().width      
-        let height = photo.getBoundingClientRect().height
-
-        if(width>=height){
-            photo.classList.remove('photo-cropped-h100')
-            photo.classList.add('photo-cropped-w100')
+    photoWrappers.forEach((photo,id)=>{  
+        if(id === 0){
+            photo.parentElement.style.overflow = 'visible'
+            photo.style.width = `auto`
+            photo.style.height = 'auto'  
+            photo.src = window.URL.createObjectURL(photoPath.files[0]) 
+            
+            setTimeout(()=>{
+                let width = photo.clientWidth
+                let height = photo.clientHeight
+                if(width >= height){
+                    photo.style.width = `${110*(width/height)}px`
+                    photo.style.height = '110px'
+                    resize.resizeS(110*(width/height), 110)
+                }
+                else{
+                    photo.style.height = `${110*(height/width)}px`
+                    photo.style.width = '110px'
+                    resize.resizeS(110,110*(height/width))
+                }
+            },100)
+            setTimeout(()=>{photo.parentElement.style.overflow = 'hidden'},100)
         }
-        else{
-            photo.classList.remove('photo-cropped-w100')
-            photo.classList.add('photo-cropped-h100')
+        if(id===1){
+            photo.parentElement.style.overflow = 'visible'
+            photo.style.width = `auto`
+            photo.style.height = 'auto'  
+            photo.src = window.URL.createObjectURL(photoPath.files[0]) 
+            
+            setTimeout(()=>{
+                let width = photo.clientWidth
+                let height = photo.clientHeight
+                if(width >= height){
+                    photo.style.width = `${75*(width/height)}px`
+                    photo.style.height = '75px'
+                    resize.resizeIp(75*(width/height), 75)
+                }
+                else{
+                    photo.style.height = `${75*(height/width)}px`
+                    photo.style.width = '75px'
+                    resize.resizeIp(75,75*(height/width))
+                }
+            },100)
+            setTimeout(()=>{photo.parentElement.style.overflow = 'hidden'},100)
         }
-
-        console.log(photo.clientWidth)
-        console.log(photo.clientHeight)
-        resize(photo.style.width , photo.style.height)  
+        if(id===2){
+            photo.parentElement.style.overflow = 'visible'
+            photo.style.width = `auto`
+            photo.style.height = 'auto'  
+            photo.src = window.URL.createObjectURL(photoPath.files[0]) 
+            
+            setTimeout(()=>{
+                let width = photo.clientWidth
+                let height = photo.clientHeight
+                if(width >= height){
+                    photo.style.width = `${75*(width/height)}px`
+                    photo.style.height = '75px'
+                    resize.resizeFb(75*(width/height), 75)
+                }
+                else{
+                    photo.style.height = `${75*(height/width)}px`
+                    photo.style.width = '75px'
+                    resize.resizeFb(75,75*(height/width))
+                }
+            },100)
+            setTimeout(()=>{photo.parentElement.style.overflow = 'hidden'},100)
+        }
     })
 }
 
@@ -391,10 +446,7 @@ buttonDownloadFb.onclick = ()=>{
 }
 
 photoDrag.forEach(photo=>{
-    
-    photo.addEventListener('dragover', e =>{
-        e.preventDefault()        
-    }) 
+     
     photo.addEventListener('dragstart', e =>{
         dragStart.x = e.clientX
         dragStart.y = e.clientY

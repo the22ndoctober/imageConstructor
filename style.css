@@ -87,9 +87,10 @@ button{
     height: 70px;
     margin: 10px 10px 10px 10px;
 }
-.verticalFadersStories{
-
+.optionsIp{
+    width: 130px;
 }
+
 
 .verticalFader{
     writing-mode: bt-lr; /* IE */
@@ -117,15 +118,8 @@ button{
     display: flex;
 }
 
-.photo-cropped-h100{
-    position: absolute;
-    cursor: grab;
-    
-}
-.photo-cropped-w100{
-    position: absolute;
-    cursor: grab;
-}
+
+
 
 .inputNameWrapper{
     display: flex;
@@ -170,7 +164,7 @@ button{
     flex-direction: column;
 }
 .sizeS input{
-    width: 190px;
+    width: 140px;
 }
 
 
@@ -178,7 +172,8 @@ button{
     width: 270px;
     height: 480px;
 }
-.photoS{
+.photoSContainer{
+    transform-origin: center;
     width: 90px;
     height: 90px;
     position: absolute;
@@ -186,6 +181,11 @@ button{
     overflow: hidden;
     left: 90px;
     align-items: center;
+}
+
+#photoS{
+    position: absolute;
+    cursor: grab;
 }
 
 .nameSWrapper{
@@ -244,14 +244,26 @@ button{
     width: 270px;
     height: 270px;
 }
+.optionsIp{
+    display: flex;
+    flex-direction: column;
+}
 
-.photoIp{
+.photoIpContainer{
+    transform-origin: center;
     width: 60px;
     height: 60px;
     position: absolute;
     border-radius: 100%;
     left: 105px;
     overflow: hidden;
+}
+#photoIp{
+    position: absolute;
+    cursor: grab;
+}
+.sizeIp input{
+    width: 140px;
 }
 
 .nameIpWrapper{
@@ -312,13 +324,30 @@ button{
     height: 270px;
 }
 
-.photoFb{
+.photoFbContainer{
+    transform-origin: center;
     width: 60px;
     height: 60px;
     position: absolute;
     border-radius: 100%;
     left: 150px;
     overflow: hidden;
+}
+#photoFb{
+    position: absolute;
+    cursor: grab;
+}
+
+.optionsFb{
+    display: flex;
+    flex-direction: column;
+}
+.sizeFb{
+    display: flex;
+    flex-direction: column;
+}
+.sizeFb input{
+    width: 140px;
 }
 
 .nameFbWrapper{

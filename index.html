@@ -112,9 +112,8 @@
     <div class="imageWrapper">
 
         <div class="wrapperStories" crossorigin="anonymous">
-            <div class="photoS">      
-                <img src="./content/test.jpg" id='photoS' alt="" draggable="true" class="photo-cropped-h100 photo-drag">          
-                          
+            <div class="photoSContainer">    
+                <img tabindex="0" src="./content/test.jpg" id='photoS' alt="" draggable="true" class="photo photo-drag">                  
             </div>
             <div class="nameSWrapper">
                 <p class="nameS">
@@ -147,12 +146,14 @@
             <div class="sizeS input-group-sm">
                 <span>Размер фото</span>
                 <input class="form-check-input" type="range" name="" id="photoRatioS" step='0.1' max='3' min='0' value="1">
+                <span>Размер контейнера</span>
+                <input class="form-check-input" type="range" name="" id="containerRatioS" step='0.1' max='4' min='0' value="1">
             </div>
         </div>
 
         <div class="wrapperInstPost" crossorigin="anonymous">
-            <div class="photoIp">               
-                <img src="./content/test.jpg" alt="" draggable="true" class="photo-cropped-h100 photo-drag">       
+            <div class="photoIpContainer">    
+                <img tabindex="0" src="./content/test.jpg" id='photoIp' alt="" draggable="true" class="photo photo-drag">                  
             </div>   
             <div class="nameIpWrapper">
                 <p class="nameIp">
@@ -182,16 +183,16 @@
                 <input type="range" title="текст" value="-165" orient="vertical" step="1" max="0" min="-250" id="positionTextIp" class="verticalFader">
             </div>
             <div class="sizeIp input-group-sm">
-                <span class="input-group-text" id="inputGroup-sizing-sm">width</span>
-                <input type="number" class="form-control" name="width" id="sizeSwidth">
-                <span class="input-group-text" id="inputGroup-sizing-sm">height</span>
-                <input type="number" class="form-control" name="height" id="sizeSheight">
+                <span>Размер фото</span>
+                <input class="form-check-input" type="range" name="" id="photoRatioIp" step='0.1' max='3' min='0' value="1">
+                <span>Размер контейнера</span>
+                <input class="form-check-input" type="range" name="" id="containerRatioIp" step='0.1' max='4' min='0' value="1">
             </div>
         </div>
         
         <div class="wrapperFb" crossorigin="anonymous">
-            <div class="photoFb">               
-                <img src="./content/test.jpg" alt="" draggable="true" class="photo-cropped-h100 photo-drag">       
+            <div class="photoFbContainer">               
+                <img src="./content/test.jpg" tabindex="0" alt="" draggable="true" id="photoFb" class="photo photo-drag">       
             </div>  
             <div class="nameFbWrapper">
                 <p class="nameFb">
@@ -213,11 +214,19 @@
             </div>
             <img class="img_Fb" src="./content/postFbBG.png" alt="" srcset="">
         </div>
-        <div class="verticalFadersStories">
-            <input type="range" title="фото" value="-35" orient="vertical" step="1" max="0" min="-250" id="positionPhotoFb" class="verticalFader">
-            <input type="range" title="имя" value="-100" orient="vertical" step="1" max="0" min="-250" id="positionNameFb" class="verticalFader">
-            <input type="range" title="страна" value="-145" orient="vertical" step="1" max="0" min="-250" id="positionCountryFb" class="verticalFader">
-            <input type="range" title="текст" value="-165" orient="vertical" step="1" max="0" min="-250" id="positionTextFb" class="verticalFader">
+        <div class="optionsFb">
+            <div class="verticalFadersStories">
+                <input type="range" title="фото" value="-35" orient="vertical" step="1" max="0" min="-250" id="positionPhotoFb" class="verticalFader">
+                <input type="range" title="имя" value="-100" orient="vertical" step="1" max="0" min="-250" id="positionNameFb" class="verticalFader">
+                <input type="range" title="страна" value="-145" orient="vertical" step="1" max="0" min="-250" id="positionCountryFb" class="verticalFader">
+                <input type="range" title="текст" value="-165" orient="vertical" step="1" max="0" min="-250" id="positionTextFb" class="verticalFader">
+            </div>
+            <div class="sizeFb input-group-sm">
+                <span>Размер фото</span>
+                <input class="form-check-input" type="range" name="" id="photoRatioFb" step='0.1' max='3' min='0' value="1">
+                <span>Размер контейнера</span>
+                <input class="form-check-input" type="range" name="" id="containerRatioFb" step='0.1' max='4' min='0' value="1">
+            </div>
         </div>
 
     </div>
