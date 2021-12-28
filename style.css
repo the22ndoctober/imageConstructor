@@ -176,6 +176,7 @@ button{
     transform-origin: center;
     width: 90px;
     height: 90px;
+    background-color: #c1c5c4;
     position: absolute;
     border-radius: 100%;
     overflow: hidden;
@@ -251,6 +252,7 @@ button{
 
 .photoIpContainer{
     transform-origin: center;
+    background-color: #c1c5c4;
     width: 60px;
     height: 60px;
     position: absolute;
@@ -326,6 +328,7 @@ button{
 
 .photoFbContainer{
     transform-origin: center;
+    background-color: #c1c5c4;
     width: 60px;
     height: 60px;
     position: absolute;

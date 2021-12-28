@@ -7,17 +7,19 @@ resize.containerFbresize()
 resize.containerIpresize()
 resize.containerSresize()
 
+resize.photomoveS()
+resize.photomoveIp()
+resize.photomoveFb()
+
 //global variables
 let button = document.querySelector('#btn')
 let buttonDownloadS = document.querySelector('#btn-downloadS')
 let buttonDownloadIp = document.querySelector('#btn-downloadIp') 
 let buttonDownloadFb = document.querySelector('#btn-downloadFb') 
 let buttonAlign = document.querySelector('#btn-align-center')
-let photoDrag = Array.from(document.querySelectorAll('.photo-drag'))
+
 let photoWrappers = Array.from(document.querySelectorAll('.photo'))
 let photoPath = document.querySelector('#file_path')
-let dragStart = {x:0, y:0}
-let dragEnd = {x:0, y:0}
 
 //'photo' variables
 let photoS = document.querySelector('.photoSContainer')
@@ -445,25 +447,13 @@ buttonDownloadFb.onclick = ()=>{
     fbWrapper.classList.remove('wrapperStories-download')
 }
 
-photoDrag.forEach(photo=>{
-     
-    photo.addEventListener('dragstart', e =>{
-        dragStart.x = e.clientX
-        dragStart.y = e.clientY
-    })
-    photo.addEventListener('dragend', e =>{
-        dragEnd.x = dragEnd.x - (dragStart.x - e.clientX) 
-        photo.style.left = `${dragEnd.x}px`
-        dragEnd.y = dragEnd.y - (dragStart.y - e.clientY) 
-        photo.style.top = `${dragEnd.y}px`  
-    })
-})
 
 buttonAlign.onclick = ()=>{
-    photoDrag.forEach(photo=>{
-        dragEnd.x = 0
-        photo.style.left = `${dragEnd.x}px`
-        dragEnd.y = 0
-        photo.style.top = `${dragEnd.y}px`
+    document.querySelectorAll('.pos').forEach(input=>{
+        input.value = 0
+    })
+    document.querySelectorAll('.photo').forEach(photo=>{
+        photo.style.top = '0px'
+        photo.style.left = '0px'
     })
 }

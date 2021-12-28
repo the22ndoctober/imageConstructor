@@ -11,16 +11,6 @@ class Resize {
             photoS.style.width = `${initialwidth * inputS.value}px`
             photoS.style.height = `${initialheight * inputS.value}px`
         }
-    
-        photoS.onfocus = () =>{
-            photoS.style.border = '5px solid red'
-            photoS.parentElement.style.overflow = 'visible'
-            
-        }
-        photoS.onblur = () =>{
-            photoS.style.border = 'none'
-            photoS.parentElement.style.overflow = 'hidden'
-        }
     }
 
     resizeIp(initialwidth,initialheight){
@@ -32,15 +22,7 @@ class Resize {
             photoIp.style.height = `${initialheight * inputIp.value}px`
         }
     
-        photoIp.onfocus = () =>{
-            photoIp.style.border = '5px solid red'
-            photoIp.parentElement.style.overflow = 'visible'
-            
-        }
-        photoIp.onblur = () =>{
-            photoIp.style.border = 'none'
-            photoIp.parentElement.style.overflow = 'hidden'
-        }
+       
     }
 
     resizeFb(initialwidth,initialheight){
@@ -52,15 +34,7 @@ class Resize {
             photoFb.style.height = `${initialheight * inputFb.value}px`
         }
     
-        photoFb.onfocus = () =>{
-            photoFb.style.border = '5px solid red'
-            photoFb.parentElement.style.overflow = 'visible'
-            
-        }
-        photoFb.onblur = () =>{
-            photoFb.style.border = 'none'
-            photoFb.parentElement.style.overflow = 'hidden'
-        }
+        
     }
 
     containerSresize(){
@@ -85,6 +59,47 @@ class Resize {
 
         inputFb.oninput = ()=>{
             containerFb.style.transform = `scale(${inputFb.value},${inputFb.value})`
+        }
+    }
+
+    photomoveS(){
+        let posX = document.querySelector('#posSX')
+        let posY = document.querySelector('#posSY')
+        let photoS = document.querySelector('#photoS')
+
+        posX.oninput = ()=>{
+            photoS.style.left = `${posX.value}px`
+            console.log(posX.value)
+        }
+        posY.oninput = ()=>{
+            photoS.style.top = `${posY.value}px`
+        }
+    }
+
+    photomoveIp(){
+        let posX = document.querySelector('#posIpX')
+        let posY = document.querySelector('#posIpY')
+        let photoIp = document.querySelector('#photoIp')
+
+        posX.oninput = ()=>{
+            photoIp.style.left = `${posX.value}px`
+            console.log(posX.value)
+        }
+        posY.oninput = ()=>{
+            photoIp.style.top = `${posY.value}px`
+        }
+    }
+    photomoveFb(){
+        let posX = document.querySelector('#posFbX')
+        let posY = document.querySelector('#posFbY')
+        let photoFb = document.querySelector('#photoFb')
+
+        posX.oninput = ()=>{
+            photoFb.style.left = `${posX.value}px`
+            console.log(posX.value)
+        }
+        posY.oninput = ()=>{
+            photoFb.style.top = `${posY.value}px`
         }
     }
 }
