@@ -339,6 +339,7 @@ button{
 #photoFb{
     position: absolute;
     cursor: grab;
+    transform-origin: center;
 }
 
 .optionsFb{
